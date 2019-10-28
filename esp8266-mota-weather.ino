@@ -42,6 +42,8 @@ void setup()
     ESP.reset();
   }
 
+  Serial.println("0.0.2");
+
   pinMode(13, OUTPUT);
   digitalWrite(13, HIGH);
 
@@ -79,7 +81,8 @@ void setup()
 }
 
 void loop() {
-  t_httpUpdate_return ret = ESPhttpUpdate.update("senseapp.space", 443, "/esp/update/esp-mota.bin", "0");
+  //t_httpUpdate_return ret = ESPhttpUpdate.update("https://github.com", 443, "/dmartingarcia/esp-weather-mota/releases/download/0.0.2/esp8266-mota-weather.ino.generic.bin", "0");
+  t_httpUpdate_return ret = ESPhttpUpdate.update("https://raw.githubusercontent.com/dmartingarcia/esp-weather-mota/0.0.3/esp8266-mota-weather.ino.generic.bin", "", "CC AA 48 48 66 46 0E 91 53 2C 9C 7C 23 2A B1 74 4D 29 9D 33");
   switch (ret) {
     case HTTP_UPDATE_FAILED:
       Serial.println("[update] Update failed.");
